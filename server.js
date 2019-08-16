@@ -24,5 +24,11 @@ app.listen(3000, ()=> {
     console.log('Express server started at port 3000');
 });
 
+
+app.get('/', (req, res) => {
+    res.render('taskPage/landingPage');
+});
+
+
 app.use('/project', taskControllers);
 app.use('/registerPage', accouuntControllers);

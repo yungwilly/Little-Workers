@@ -4,10 +4,6 @@ const Task = mongoose.model('Task');
 const path = require('path');
 var router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('taskPage/landingPage');
-});
-
 router.get('/addOrEdit', (req,res) => {
     res.render('taskPage/addOrEdit');
 });
