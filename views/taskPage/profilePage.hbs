@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Profile Page!</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+  <link rel="stylesheet" href="/css/profile.css">
+
+</head>
+<body>
+<header class = "masthead">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#"></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+        <li>
+            <img src="/img/logo.png" class = "damien" alt="Damien the Little Worker">
+        </li>
+          <li class="active"><a href="/dashboard"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+          <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+        </ul>
+  
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+        </ul>
+         
+      <style>
+        .addToDash{
+            padding: 1%;
+            width: 96;
+            border: 1px solid #000;
+        }
+
+    </style>
+
+      </div>
+    </div>
+  </nav>
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+					<img src="/img/Reese.jpg" class="avatar" alt="">
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						William Reyes
+					</div>
+					<div class="profile-usertitle-job">
+						
+					</div>
+				</div>
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">
+							<i class="glyphicon glyphicon-home"></i>
+							Overview </a>
+						</li>
+						<li>
+              <form action="editingProfile" method="post" id="editProfile" style="margin-left: 15px; margin-top:5px;margin-bottom: 5px;">
+              <a href="/editProfile">
+							<i class="glyphicon glyphicon-user"></i>
+							Edit Profile </a>
+              </form>
+							
+						</li>
+						<li>
+							<a href="#" target="#">
+							<i class="glyphicon glyphicon-ok"></i>
+							Tasks </a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			   
+           <div class="portlet light bordered">
+                                                <!-- STAT -->
+                                                <div class="row list-separated profile-stat">
+                                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                                        <div class="num uppercase profile-stat-title"> 37 </div>
+                                                        <div class="uppercase profile-stat-text"> Projects </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                                        <div class="num uppercase profile-stat-title"> 51 </div>
+                                                        <div class="uppercase profile-stat-text"> Tasks </div>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                                        <div class="num uppercase profile-stat-title"> 61 </div>
+                                                        <div class="uppercase profile-stat-text"> Commits </div>
+                                                    </div>
+                                                </div>
+                                                <!-- END STAT -->
+                                          </div>                   
+                                           
+        
+        
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+			   <h3 class="heading">My Works</h3>
+               <hr  style="height:1px;border:none;color:#333;background-color:#333;">
+                
+                <div class="addToDash">
+                    <a href="/taskPage"><h1 id="post_title">CCSCAL2 HELP</h1></a>
+                    <h4 id="task_details">Homework due Thursday and I need help figuring out how to do the homework, either meet up or comment with attached picture of the homework</h4>
+                </div>
+                
+            </div>
+		</div>
+	</div>
+</div>
+
+<script type = "text/javascript">
+$(".num").counterUp({delay:10,time:1250});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+
+
+<h3>{{viewTitle}}</h3>
+<form action="/project" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{task._id}}">
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" name="title" placeholder="Title" value="{{task.title}}">
+        <div class="text-danger">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Text</label>
+        <input type="text" class="form-control" name="text" placeholder="Text" value="{{task.text}}">
+        <div class="text-danger">
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Subject</label>
+        <input type="text" class="form-control" name="subject" placeholder="Subject" value="{{task.subject}}">
+        <div class="text-danger">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Submit</button>
+    </div>
+</form>
+
+

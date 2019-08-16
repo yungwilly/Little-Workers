@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:700&display=swap');
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    .row.content {height: 450px}
+    
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+
+    .damien{
+        height: 40px;
+        margin-top: 5px;
+      }
+
+    .bg{
+        background-image: url(/img/background2.jpg);
+        height: 100%; 
+        background-position: top; 
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+
+    .task-text{
+      font-family: 'Exo', sans-serif;
+      font-size: 20px;
+
+
+     }
+     
+     #addQues{
+      font-family: 'Exo', sans-serif;
+      font-size: 24px; 
+     }

@@ -1,0 +1,107 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Register Page!</title>
+  </head>
+  <body>
+
+  
+  <div class="wrapper">
+    <form class="form-signin" action="/registerPage" method="POST" id="addingAccount" autocomplete="off">   
+    <input type="hidden" name="_registerID" value="{{user._id}}">
+      <h2 class="our-logo text-center" style="margin-top:50px;">Register</h1> 
+      <p class="welcome">Welcome! Damien has been expecting you.</p>  
+  {{!-- Form-groups --}}
+    <div class="form-group">
+      <input type="text" class="form-control" name="firstName" placeholder="First Name" required="" autofocus="" style="margin-top:10px;" value="{{user.firstName}}">
+      <div class="text-danger">
+      </div>
+    </div>  
+     <div class="form-group">
+      <input type="text" class="form-control" name="lastName" placeholder="Last Name" required="" style="margin-top:10px;" value="{{user.lastName}}">          
+      <div class="text-danger">
+      </div>
+    </div> 
+    <div class="form-group">
+      <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" style="margin-top:10px;" value="{{user.username}}">
+      <div class="text-danger">
+      </div> 
+    </div>  
+    <div class="form-group">
+      <input type="password" class="form-control" name="password" placeholder="Password" required="" style="margin-top:10px;" value="{{user.password}}">   
+      <div class="text-danger">
+      </div>
+    </div>  
+    
+
+      <div class="container">
+    <div class="form-group">
+        <hr style="height:1px;border:none;color:#333;background-color:#333;">
+        <label style="margin-top:-5px;" id="ayuh">Upload Image</label>
+        <div class="input-group">
+            <span class="input-group-btn">
+                <span class="btn btn-outline-dark btn-file btn ">
+                    Browse… <input type="file" id="imgInp">
+                </span>
+            </span>
+        </div>
+        <img id='img-upload'/>
+    </div>
+
+</div>   
+    <div class="form-group">
+        <button type="submit" class="btn btn-info"><i class="fa fa-database"></i>Sign Up!</button>
+    </div>
+    </form>
+  </div>
+      
+      <script type="text/javascript">
+        $(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+      </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
