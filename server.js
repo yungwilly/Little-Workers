@@ -7,6 +7,7 @@ const bodyparser = require('body-parser');
 
 const taskControllers = require('./controllers/taskControllers');
 const accouuntControllers = require('./controllers/accountControllers');
+const loginControllers = require('./controllers/loginControllers');
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -32,3 +33,4 @@ app.get('/', (req, res) => {
 
 app.use('/project', taskControllers);
 app.use('/registerPage', accouuntControllers);
+app.use('/loginPage', loginControllers);

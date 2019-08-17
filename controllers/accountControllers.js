@@ -37,14 +37,6 @@ function insertUserRecord(req, res){
     });
 }
 
-function checkUserInformation(req, res){
-    var user = new User();
-    user.username = req.body.username;
-    user.password = req.body.password;
-
-    user.findOne({username : req.body.username} , {password : req.body.password})
-}
-
 function handleValidationError(err, body){
     for(field in err.errors)
     {
@@ -60,6 +52,8 @@ function handleValidationError(err, body){
         }
     }
 }
+
+
 
 
 module.exports = router;
