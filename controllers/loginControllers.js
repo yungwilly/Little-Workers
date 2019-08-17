@@ -9,8 +9,12 @@ router.get('/', (req, res) => {
     res.render('taskPage/loginPage');
 })
 
+router.post('/', (req,res) => {
+    checkingUserInformation(req, res);
+})
 
-router.post('/login', (req, res) =>{
+
+function checkingUserInformation(req, res){
     var username = req.body.username
     var password = req.body.password
 
@@ -29,8 +33,8 @@ router.post('/login', (req, res) =>{
             }else
             console.log('Error during insertion: ' + err);
         }
-    })
-})
+    });
+}
 
 function handleValidationError(err, body){
     for(field in err.errors)
