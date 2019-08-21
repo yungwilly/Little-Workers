@@ -13,8 +13,8 @@ var userSchema = new mongoose.Schema({
     password: {
         type: String
     },
-    dp: {
-        data: Buffer, contentType: String
+    displayPicture: {
+        type: String, required: true
     }
 });
 

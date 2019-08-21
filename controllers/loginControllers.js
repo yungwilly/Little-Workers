@@ -18,21 +18,16 @@ function checkingUserInformation(req, res){
     var username = req.body.username
     var password = req.body.password
 
-    User.findOne({username : username, password : password}, (req, res) =>{
+    User.findOne({username : username, password : password}, (err, user) =>{
         if(err){
             alert('Account Found!');
             res.redirect('/project/dashboard');
+            return res.status(500).send();
         }
-        else{
-            if(err.name == 'ValidationError'){
-                handleValidationError(err, req.body);
-                res.render('/taskPage/registerPage',{
-                    viewTitle: 'Insert Task',
-                    user: req.body
-                })
-            }else
-            console.log('Error during insertion: ' + err);
+        if(!user){
+            return res.status(404).send();
         }
+        return res.status(200).send();
     });
 }
 
