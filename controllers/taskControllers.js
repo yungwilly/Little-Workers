@@ -62,7 +62,7 @@ function insertComment(req, res){ //For creating Comments
 
     comment.save((err, doc) => {
         if(!err){
-                res.redirect('/project/taskPage/' + comment._id);
+                res.redirect('back');
         }
         else{
             if(err.name == 'ValidationError'){
