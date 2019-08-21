@@ -14,7 +14,7 @@ var userSchema = new mongoose.Schema({
         type: String
     },
     displayPicture: {
-        data: Buffer, contentType: String
+        type: String, required: true
     }
 });
 
