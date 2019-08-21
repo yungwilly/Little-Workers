@@ -27,7 +27,7 @@
 
 
   <!--/ Intro Skew End /-->
-
+  
   <!--/ Section Blog-Single Star /-->
   <section class="blog-wrapper sect-pt4" id="blog">
     <div class="container">
@@ -35,7 +35,7 @@
         <div class="col-md-12">
           <div class="post-box">
             <div class="post-meta">
-              <h1 class="article-title">CCSCAL2 Help</h1>
+              <h1 class="article-title">{{task.title}}</h1>
               <ul>
                 <li>
                   <span class="ion-ios-person"></span>
@@ -48,32 +48,7 @@
             </div>
             <div class="article-content">
               <p>
-                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                porta. Quisque velit
-                nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque
-                nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                Nulla quis lorem ut libero malesuada feugiat.
-              </p>
-              <p>
-                Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Mauris blandit
-                aliquet elit, eget tincidunt
-                nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Donec sollicitudin molestie malesuada.
-              </p>
-              <p>
-                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Praesent
-                sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-                sem. Donec rutrum congue leo eget malesuada.
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.
-                Curabitur arcu erat,
-                accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor
-                volutpat. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium
-                ut lacinia in, elementum id enim.
+                {{task.text}}
               </p>
             </div>
           </div>
@@ -87,60 +62,14 @@
                   <img src="../img/testimonial-2.jpg" alt="">
                 </div>
                 <div class="comment-details">
+                  {{#each commentList}}
                   <h4 class="comment-author">Oliver Colmenares</h4>
                   <span>18 Sep 2017</span>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis.
+                    {{this.text}}
                   </p>
                   <a href="3">Reply</a>
-                </div>
-              </li>
-              <li>
-                <div class="comment-avatar">
-                  <img src="../../img/testimonial-4.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Carmen Vegas</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis,
-                    veritatis deserunt.
-                  </p>
-                  <a href="3">Reply</a>
-                </div>
-              </li>
-              <li class="comment-children">
-                <div class="comment-avatar">
-                  <img src="../../img/testimonial-2.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae.
-                  </p>
-                  <a href="3">Reply</a>
-                </div>
-              </li>
-              <li>
-                <div class="comment-avatar">
-                  <img src="../../img/testimonial-2.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio.
-                  </p>
-                  <a href="3">Reply</a>
+                  {{/each}}
                 </div>
               </li>
             </ul>
@@ -151,12 +80,12 @@
                 Leave An Answer
               </h3>
             </div>
-            <form class="form-mf">
+            <form action="/project/taskPage" method="POST" class="form-mf">
               <div class="row">
                 </div>
                 <div class="col-md-12 mb-3">
                   <div class="form-group">
-                    <textarea id="textMessage" class="form-control input-mf" placeholder="Comment *" name="message"
+                    <textarea name="text" placeholder="Text" value="{{task.text}}" id="textMessage" class="form-control input-mf"
                       cols="45" rows="8" required></textarea>
                   </div>
                 </div>
