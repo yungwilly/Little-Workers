@@ -143,15 +143,6 @@ router.get('/delete/:id', (req, res) => {
     });
 });
 
-router.get('/taskPage/:id', (req, res)=>{
-    Task.findById(req.params.id, (err, doc)=>{
-        if(!err){
-            res.render('taskPage/taskPage',{
-                task: doc
-            });
-        }
-    });
-});
 
 router.get('/taskPage/:id', (req, res)=>{
     Task.findById(req.params.id, (err, doc)=>{
