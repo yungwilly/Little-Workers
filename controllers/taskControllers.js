@@ -16,6 +16,10 @@ router.get('/registerPage', (req, res) => {
     res.render('taskPage/registerPage');
 }); 
 
+router.get('/taskPage', (req, res) => {
+    res.render('taskPage/taskPage');
+}); 
+
 router.post('/', (req, res) => {
     if(req.body._id == '')
         insertRecord(req, res);
@@ -55,7 +59,7 @@ router.get('/dashboard', (req, res) => {
                 list: docs
             });
         }else{
-            console.log('Error in recreating employee list: ' + err);
+            console.log('Error in dashboard: ' + err);
         }
     });
 });
@@ -110,10 +114,19 @@ router.get('/delete/:id', (req, res) => {
         if (!err) {
             res.redirect('/project/dashboard');
         }
-        else { console.log('Error in employee delete :' + err); }
+        else { console.log('Error in delete taskController :' + err); }
     });
 });
 
+router.get('/taskPage/:id', (req, res)=>{
+    Task.findById(req.params.id, (err, doc)=>{
+        if(!err){
+            res.render('taskPage/taskPage',{
+                task: doc
+            });
+        }
+    });
+});
 
 
 module.exports = router;
