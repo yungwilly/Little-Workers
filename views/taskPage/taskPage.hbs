@@ -62,60 +62,14 @@
                   <img src="../img/testimonial-2.jpg" alt="">
                 </div>
                 <div class="comment-details">
+                  {{#each commentList}}
                   <h4 class="comment-author">Oliver Colmenares</h4>
                   <span>18 Sep 2017</span>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis.
+                    {{this.text}}
                   </p>
                   <a href="3">Reply</a>
-                </div>
-              </li>
-              <li>
-                <div class="comment-avatar">
-                  <img src="../../img/testimonial-4.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Carmen Vegas</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio, at qui beatae ducimus placeat debitis voluptates amet corporis,
-                    veritatis deserunt.
-                  </p>
-                  <a href="3">Reply</a>
-                </div>
-              </li>
-              <li class="comment-children">
-                <div class="comment-avatar">
-                  <img src="../../img/testimonial-2.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae.
-                  </p>
-                  <a href="3">Reply</a>
-                </div>
-              </li>
-              <li>
-                <div class="comment-avatar">
-                  <img src="../../img/testimonial-2.jpg" alt="">
-                </div>
-                <div class="comment-details">
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores reprehenderit, provident cumque
-                    ipsam temporibus maiores
-                    quae natus libero optio.
-                  </p>
-                  <a href="3">Reply</a>
+                  {{/each}}
                 </div>
               </li>
             </ul>
@@ -126,12 +80,12 @@
                 Leave An Answer
               </h3>
             </div>
-            <form class="form-mf">
+            <form action="/project/taskPage" method="POST" class="form-mf">
               <div class="row">
                 </div>
                 <div class="col-md-12 mb-3">
                   <div class="form-group">
-                    <textarea id="textMessage" class="form-control input-mf" placeholder="Comment *" name="message"
+                    <textarea name="text" placeholder="Text" value="{{task.text}}" id="textMessage" class="form-control input-mf"
                       cols="45" rows="8" required></textarea>
                   </div>
                 </div>

@@ -34,3 +34,4 @@ app.get('/', (req, res) => {
 app.use('/project', taskControllers);
 app.use('/registerPage', accouuntControllers);
 app.use('/loginPage', loginControllers);
+// app.use('/comment', commentControllers);
