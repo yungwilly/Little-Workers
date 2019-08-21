@@ -3,16 +3,17 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const path = require('path');
 var router = express.Router();
+const multer= require('multer');
 const storage  = multer.diskStorage({
     destination: function(req, file, cb){
         cb(null, '../public/displayPictures')
     },
     fileName: function(req, file, cb){
-        cb(null, new Date().toISOString + file.originalname)
+        cb(null, new Date().toISO)
     }
 })
-const multer = require('multer');
-const upload = multer({storage : storage})
+
+const upload = multer({storage : storage});
 
 
 router.get('/', (req, res) => {
@@ -25,7 +26,6 @@ router.post('/', upload.single('displayPicture'),(req,res) => {
     user.lastName = req.body.lastName;
     user.username = req.body.username;
     user.password = req.body.password;
-    user.displayPicture = req.file.path;
 
     user.save((err, doc) => {
         if(!err){
