@@ -41,6 +41,7 @@ router.post('/',(req,res) => {
             console.log('Error during insertion: ' + err);
         }
     });
+    
 })
 
 function handleValidationError(err, body){

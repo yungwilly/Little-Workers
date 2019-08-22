@@ -18,11 +18,6 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req,res) => {
-    checkingUserInformation(req, res);
-})
-
-
-function checkingUserInformation(req, res){
     var username = req.body.username
     var password = req.body.password
     console.log(username);
@@ -31,6 +26,7 @@ function checkingUserInformation(req, res){
     User.findOne({username : username, password : password}).then((user)=>{
         if(user){
             console.log('account found!')
+            req.session.username = username;
             res.redirect('/project/dashboard');
         }
         else(!user)
@@ -38,8 +34,7 @@ function checkingUserInformation(req, res){
         
         return res.status(200).send();
     });
-    req.session.username = req.body.username;
-}
+})
 
 
 module.exports = router;
