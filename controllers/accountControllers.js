@@ -22,8 +22,11 @@ router.post('/',upload.single('displayPicture'),(req,res) => {
     user.lastName = req.body.lastName;
     user.username = req.body.username;
     user.password = req.body.password;
-    user.displayPicture = req.file.displayPicture;
-
+    var filename = "default";
+    if(req.file){
+        filename = req.file.filename
+    }
+    user.displayPicture = filename;
     user.save((err, doc) => {
         if(!err){
             res.redirect('/project/dashboard');
