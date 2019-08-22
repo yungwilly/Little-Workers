@@ -11,7 +11,28 @@ router.get('/', (req, res) => {
 });
 
 router.post('/',(req,res) => {
-    addingUserAccount(req, res);
+    
+    var user = new User();
+    user.firstName = req.body.firstName;
+    user.lastName = req.body.lastName;
+    user.username = req.body.username;
+    user.password = req.body.password;
+
+    user.save((err, doc) => {
+        if(!err){
+            res.redirect('/project/dashboard');
+        }
+        else{
+            if(err.name == 'ValidationError'){
+                handleValidationError(err, req.body);
+                res.render('/taskPage/registerPage',{
+                    viewTitle: 'Insert Task',
+                    user: req.body
+                })
+            }else
+            console.log('Error during insertion: ' + err);
+        }
+    });
 })
 function addingUserAccount(req,res){
     var user = new User();
