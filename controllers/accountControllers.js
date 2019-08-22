@@ -3,24 +3,14 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const path = require('path');
 var router = express.Router();
-const multer= require('multer');
-const storage  = multer.diskStorage({
-    destination: function(req, file, cb){
-        cb(null, '../public/displayPictures')
-    },
-    fileName: function(req, file, cb){
-        cb(null, new Date().toISO)
-    }
-})
 
-const upload = multer({storage : storage});
 
 
 router.get('/', (req, res) => {
     res.render('taskPage/registerPage');
 });
 
-router.post('/', upload.single('displayPicture'),(req,res) => {
+router.post('/',(req,res) => {
     var user = new User();
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;

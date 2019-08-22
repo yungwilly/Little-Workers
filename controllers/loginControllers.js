@@ -20,9 +20,8 @@ function checkingUserInformation(req, res){
 
     User.findOne({username : username, password : password}, (err, user) =>{
         if(err){
-            alert('Account Found!');
+            console.log('account found!')
             res.redirect('/project/dashboard');
-            return res.status(500).send();
         }
         if(!user){
             return res.status(404).send();
@@ -30,24 +29,6 @@ function checkingUserInformation(req, res){
         return res.status(200).send();
     });
 }
-
-function handleValidationError(err, body){
-    for(field in err.errors)
-    {
-        switch(err.errors[field].path){
-            case 'fullName': 
-                body['fullNameError'] = err.errors[field].message; 
-                break;
-            case 'email':
-                body['emailError'] = err.errors[field].message;
-                break;
-            default:
-                break;
-        }
-    }
-}
-
-
 
 
 module.exports = router;
