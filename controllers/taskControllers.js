@@ -21,6 +21,10 @@ router.get('/taskPage', (req, res) => {
     res.render('taskPage/taskPage');
 }); 
 
+router.get('/profilePage', (req, res) => {
+    res.render('taskPage/profilePage');
+});
+
 router.post('/', (req, res) => {
     if(req.body._id == '')
         insertRecord(req, res);
