@@ -24,7 +24,7 @@ router.post('/',upload.single('displayPicture'),(req,res) => {
     user.password = req.body.password;
     var filename = "default";
     if(req.file){
-        filename = req.file.filename
+        filename = req.file.displayPicture
     }
     user.displayPicture = filename;
     user.save((err, doc) => {
