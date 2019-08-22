@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-    firstName: {
-        type: String,
-    },
-    lastName: {
-        type: String
-    },
-    username: {
-        type: String 
-    },
-    password: {
-        type: String
-    }
+    firstName: String,
+    lastName: String,
+    username: String, 
+    password: String,
+    Task: [{
+        title: String,
+        text: String,
+        subject: String
+    }],
+    Comment: [{
+        firstName: String,
+        text: String
+    }]
 });
 
 mongoose.model('User', userSchema);
