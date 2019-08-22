@@ -11,6 +11,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/',(req,res) => {
+    addingUserAccount(req, res);
+})
+function addingUserAccount(req,res){
     var user = new User();
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
@@ -32,8 +35,7 @@ router.post('/',(req,res) => {
             console.log('Error during insertion: ' + err);
         }
     });
-})
-
+}
 function handleValidationError(err, body){
     for(field in err.errors)
     {
