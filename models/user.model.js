@@ -8,7 +8,11 @@ var userSchema = new mongoose.Schema({
     Task: [{
         title: String,
         text: String,
-        subject: String
+        subject: String,
+        Comment: [{
+            firstName: String,
+            text: String
+        }]
     }],
     Comment: [{
         firstName: String,
