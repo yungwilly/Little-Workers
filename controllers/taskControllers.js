@@ -30,9 +30,9 @@ router.post('/', (req, res) => {
 
 function insertRecord(req, res){ //For creating Tasks
     var task = new Task();
-    task.title = req.body.title;
-    task.text = req.body.text;
-    task.subject = req.body.subject;
+    task.taskTitle = req.body.taskTitle;
+    task.taskText = req.body.taskText;
+    task.taskSubject = req.body.taskSubject;
 
     task.save((err, doc) => {
         if(!err){
@@ -57,8 +57,8 @@ router.post('/taskPage', (req, res) => {
 
 function insertComment(req, res){ //For creating Comments
     var comment = new Comment();
-    comment.firstName = req.body.firstName;
-    comment.text = req.body.text;
+    comment.commentOwner = req.body.commentOwner;
+    comment.commentText = req.body.commentText;
 
     comment.save((err, doc) => {
         if(!err){
