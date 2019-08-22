@@ -2,30 +2,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const path = require('path');
-const multer = require('multer');
 var router = express.Router();
-
-const storage = path.join("./", "/public/displayPictures")
-const upload = multer({
-    dest: storage
-})
-
 
 router.get('/', (req, res) => {
     res.render('taskPage/registerPage');
 });
 
-router.post('/',upload.single('displayPicture'),(req,res) => {
+router.post('/',(req,res) => {
     
     var user = new User();
     user.firstName = req.body.firstName;
     user.lastName = req.body.lastName;
     user.username = req.body.username;
     user.password = req.body.password;
-    var filename = "default";
-    if(req.file){
-        filename = req.file.displayPicture
-    }
     user.displayPicture = filename;
     user.save((err, doc) => {
         if(!err){
