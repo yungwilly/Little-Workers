@@ -4,6 +4,14 @@ const User = mongoose.model('User');
 const path = require('path');
 var router = express.Router();
 
+const session = require('express-session');
+router.use(session({
+    name: 'User Session', 
+    secret: 'session secret',
+    resave: true,
+    saveUninitialized: true,
+}));
+
 
 router.get('/', (req, res) => {
     res.render('taskPage/loginPage');

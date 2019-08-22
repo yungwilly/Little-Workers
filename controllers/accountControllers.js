@@ -3,6 +3,13 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const path = require('path');
 var router = express.Router();
+const session = require('express-session');
+router.use(session({
+    name: 'User Session', 
+    secret: 'session secret',
+    resave: true,
+    saveUninitialized: true,
+}));
 
 router.get('/', (req, res) => {
     res.render('taskPage/registerPage');
@@ -18,6 +25,9 @@ router.post('/',(req,res) => {
     user.rating = 0;
     user.save((err, doc) => {
         if(!err){
+            console.log(user.username);
+            req.session.username = user.username;
+            console.log(req.session.username);
             res.redirect('/project/dashboard');
         }
         else{
@@ -31,7 +41,6 @@ router.post('/',(req,res) => {
             console.log('Error during insertion: ' + err);
         }
     });
-    req.session.username = user.username;
 })
 
 function handleValidationError(err, body){
