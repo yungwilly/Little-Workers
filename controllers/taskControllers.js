@@ -30,9 +30,11 @@ router.post('/', (req, res) => {
 
 function insertRecord(req, res){ //For creating Tasks
     var task = new Task();
+    var today = new Date();
     task.taskTitle = req.body.taskTitle;
     task.taskText = req.body.taskText;
     task.taskSubject = req.body.taskSubject;
+    task.taskDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
     task.save((err, doc) => {
         if(!err){
