@@ -15,10 +15,13 @@ router.post('/', (req,res) => {
 
 
 function checkingUserInformation(req, res){
+    var User = new User();
     var username = req.body.username
     var password = req.body.password
+    console.log(username);
+    console.log(password);
 
-    User.findOne({username : username, password : password}, (err, user) =>{
+    User.findOne({username : username, password : password}).then((user)=>{
         if(err){
             console.log('account found!')
             res.redirect('/project/dashboard');
