@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
     res.render('taskPage/registerPage');
 });
 
-router.get('/profilePage', (req, res) => {
-    res.render('taskPage/profilePage');
-});
+// router.get('/profilePage', (req, res) => {
+//     res.render('taskPage/profilePage');
+// });
 
 
 router.post('/',(req,res) => {
@@ -52,6 +52,11 @@ router.post('/',(req,res) => {
     
 })
 
+router.get('/profilePage', (req, res) => {
+    res.render('taskPage/profilePage', {
+        user: req.session
+    });
+});
 
 function handleValidationError(err, body){
     for(field in err.errors)
@@ -71,4 +76,3 @@ function handleValidationError(err, body){
 
 
 module.exports = router;
-

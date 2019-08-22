@@ -9,13 +9,13 @@ router.get('/addOrEdit', (req,res) => {
     res.render('taskPage/addOrEdit');
 });
 
-router.get('/loginPage', (req, res) => {
-    res.render('taskPage/loginPage');
-}); 
+// router.get('/loginPage', (req, res) => {
+//     res.render('taskPage/loginPage');
+// }); 
 
-router.get('/registerPage', (req, res) => {
-    res.render('taskPage/registerPage');
-}); 
+// router.get('/registerPage', (req, res) => {
+//     res.render('taskPage/registerPage');
+// }); 
 
 router.get('/taskPage', (req, res) => {
     res.render('taskPage/taskPage');
@@ -62,13 +62,18 @@ router.post('/taskPage', (req, res) => {
 function insertComment(req, res){ //For creating Comments
     var comment = new Comment();
     var today = new Date();
+    comment._id = req.body._id;
     comment.commentOwner = req.body.commentOwner;
     comment.commentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     comment.commentText = req.body.commentText;
 
     comment.save((err, doc) => {
         if(!err){
-                res.redirect('back');
+            req.session._id = comment._id;
+            req.session.commentOwner = comment.commentOwner;
+            req.session.commentDate = comment.commentDate;
+            req.session.commentText = comment.commentText;
+            res.redirect('back');
         }
         else{
             if(err.name == 'ValidationError'){

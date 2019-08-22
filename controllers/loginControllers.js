@@ -30,7 +30,7 @@ router.post('/', (req,res) => {
             req.session.lastName = User.lastName;
             req.session.username = username;
             req.session.password = password;
-
+                
             res.redirect('/project/dashboard');
         }
         else if(!user){
