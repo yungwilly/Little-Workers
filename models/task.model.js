@@ -5,7 +5,7 @@ var taskSchema = new mongoose.Schema({
     taskText: String,
     taskSubject: String,
     taskDate: String,
-    commentNumber: Number,
+    commentNumber: String,
     comment: [{
         _taskID: mongoose.Schema.Types.ObjectId,
         commentOwner: String,

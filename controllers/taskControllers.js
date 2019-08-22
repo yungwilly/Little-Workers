@@ -40,6 +40,7 @@ function insertRecord(req, res){ //For creating Tasks
 
     task.save((err, doc) => {
         if(!err){
+            
             res.redirect('/project/dashboard');
         }
         else{
@@ -63,16 +64,12 @@ function insertComment(req, res){ //For creating Comments
     var comment = new Comment();
     var today = new Date();
     comment.commentOwner = req.body.commentOwner;
-    comment.commentNumber++;
     comment.commentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     comment.commentText = req.body.commentText;
 
     comment.save((err, doc) => {
         if(!err){
-            req.session.commentOwner = comment.commentOwner;
-            req.session.commentDate = comment.commentDate;
-            req.session.commentText = comment.commentText;
-            res.redirect('back');
+                res.redirect('back');
         }
         else{
             if(err.name == 'ValidationError'){
