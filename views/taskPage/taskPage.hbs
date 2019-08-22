@@ -63,8 +63,8 @@
                 </div>
                 <div class="comment-details">
                   {{#each commentList}}
-                  <h4 class="comment-author">Oliver Colmenares</h4>
-                  <span>18 Sep 2017</span>
+                  <h4 class="comment-author">{{this.commentOwner}}</h4>
+                  <span>{{this.commentDate}}</span>
                   <p>
                     {{this.commentText}}
                   </p>
@@ -85,6 +85,7 @@
                 </div>
                 <div class="col-md-12 mb-3">
                   <div class="form-group">
+                    <input type="text" class="form-control" name="commentOwner" placeholder="Enter Name" value="{{comment.commentOwner}}">
                     <textarea name="commentText" placeholder="Text" value="{{comment.commentText}}" id="textMessage" class="form-control input-mf"
                       cols="45" rows="8" required></textarea>
                   </div>

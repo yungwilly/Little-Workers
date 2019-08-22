@@ -57,7 +57,9 @@ router.post('/taskPage', (req, res) => {
 
 function insertComment(req, res){ //For creating Comments
     var comment = new Comment();
+    var today = new Date();
     comment.commentOwner = req.body.commentOwner;
+    comment.commentDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     comment.commentText = req.body.commentText;
 
     comment.save((err, doc) => {
