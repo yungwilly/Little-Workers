@@ -5,19 +5,26 @@ var userSchema = new mongoose.Schema({
     lastName: String,
     username: String, 
     password: String,
-    rating: int,
-    Task: [{
-        title: String,
-        text: String,
-        subject: String,
-        Comment: [{
-            firstName: String,
-            text: String
+    helpNumber: Number,
+    rating: Number,
+    task: [{
+        taskTitle: String,
+        taskText: String,
+        taskSubject: String,
+        taskDate: String,
+        commentNumber: Number,
+        comment: [{
+            _taskID: mongoose.Schema.Types.ObjectId,
+            commentOwner: String,
+            commentText: String,
+            nestedComments:[mongoose.Schema.Types.ObjectId]
         }]
     }],
-    Comment: [{
-        firstName: String,
-        text: String
+    comment: [{
+        _taskID: mongoose.Schema.Types.ObjectId,
+        commentOwner: String,
+        commentText: String,
+        nestedComments:[mongoose.Schema.Types.ObjectId]
     }]
 });
 
