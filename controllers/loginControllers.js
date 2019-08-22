@@ -25,8 +25,12 @@ router.post('/', (req,res) => {
 
     User.findOne({username : username, password : password}).then((user)=>{
         if(user){
-            console.log('account found!')
+            console.log('account found!');
+            req.session.firstName = User.firstName;
+            req.session.lastName = User.lastName;
             req.session.username = username;
+            req.session.password = password;
+
             res.redirect('/project/dashboard');
         }
         else if(!user){

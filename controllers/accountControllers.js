@@ -31,6 +31,9 @@ router.post('/',(req,res) => {
     user.save((err, doc) => {
         if(!err){
             console.log(user.username);
+            req.session.firstName = user.firstName;
+            req.session.lastName = user.lastName;
+            req.session.password = user.password;
             req.session.username = user.username;
             console.log(req.session.username);
             res.redirect('/project/dashboard');
@@ -48,6 +51,7 @@ router.post('/',(req,res) => {
     });
     
 })
+
 
 function handleValidationError(err, body){
     for(field in err.errors)
