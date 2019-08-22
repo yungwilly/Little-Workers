@@ -32,7 +32,6 @@ router.post('/', (req,res) => {
         else(!user)
             res.redirect('/project/loginPage');
         
-        return res.status(200).send();
     });
 })
 
