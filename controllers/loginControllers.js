@@ -29,7 +29,7 @@ router.post('/', (req,res) => {
             req.session.username = username;
             res.redirect('/project/dashboard');
         }
-        else(!user)
+        else if(!user)
             res.redirect('/project/loginPage');
         
     });
