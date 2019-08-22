@@ -15,6 +15,11 @@ router.get('/', (req, res) => {
     res.render('taskPage/registerPage');
 });
 
+router.get('/profilePage', (req, res) => {
+    res.render('taskPage/profilePage');
+});
+
+
 router.post('/',(req,res) => {
     
     var user = new User();
