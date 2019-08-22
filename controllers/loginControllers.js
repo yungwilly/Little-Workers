@@ -30,6 +30,7 @@ function checkingUserInformation(req, res){
         
         return res.status(200).send();
     });
+    req.session.username = req.body.username;
 }
 
 

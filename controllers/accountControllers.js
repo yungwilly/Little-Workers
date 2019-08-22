@@ -31,6 +31,7 @@ router.post('/',(req,res) => {
             console.log('Error during insertion: ' + err);
         }
     });
+    req.session.username = user.username;
 })
 
 function handleValidationError(err, body){
